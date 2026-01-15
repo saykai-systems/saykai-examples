@@ -60,6 +60,8 @@ All files are static and non-executable.
    - Block – merge is prevented
    - Report-only – merge allowed, issues reported
 
+![CI safety gate flow](diagrams/ci-safety-gate-flow.png)
+
 No code in this repository executes this flow.  
 The files illustrate what the workflow looks like, not how it is implemented.
 
