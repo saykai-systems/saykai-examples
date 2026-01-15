@@ -1,0 +1,20 @@
+{
+  "run_id": "pr-829",
+  "result": "block",
+  "timestamp": "2026-01-12T18:42:00Z",
+  "evaluated_scenarios": 12,
+  "log_replay_window_days": 7,
+  "violations": [
+    {
+      "id": "motion_drift_exceeded",
+      "severity": "critical",
+      "description": "Observed behavior exceeded allowed drift limits"
+    },
+    {
+      "id": "incident_signature_match",
+      "severity": "high",
+      "description": "Known-bad pattern detected in replayed logs"
+    }
+  ],
+  "notes": "Illustrative artifact only. No production schema implied."
+}

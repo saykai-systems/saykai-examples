@@ -1,0 +1,13 @@
+{
+  "run_context": {
+    "source": "pull_request",
+    "pr": 829,
+    "commit_sha": "abcdef1234567890",
+    "environment": "ci"
+  },
+  "scenario_set": {
+    "name": "production-planning",
+    "count": 12,
+    "notes": "Illustrative only. No real data."
+  }
+}

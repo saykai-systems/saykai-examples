@@ -1,0 +1,26 @@
+# Safety Spec (example)
+# Intentionally simplified and non-executable. Placeholder values only.
+
+version: 1
+service: "example-system"
+
+enforcement:
+  mode: "fail_closed"     # conceptual: pass | block | report_only
+  on_ambiguous: "block"
+
+scenarios:
+  - id: "baseline_replay"
+    description: "Replay representative scenarios and compare against baseline."
+    checks:
+      - id: "drift_limits"
+        metric: "behavior_drift"
+        threshold: "within_limits"
+      - id: "critical_failures"
+        metric: "critical_error_rate"
+        threshold: "no_increase"
+
+logs:
+  replay_window_days: 7
+  checks:
+    - id: "incident_signature_match"
+      description: "Detect recurrence of known-bad patterns."

@@ -1,0 +1,14 @@
+SAYKAI SAFETY GATE RESULT
+
+Status: BLOCK
+PR: 829
+Scenarios evaluated: 12
+Log replay window: 7 days
+
+Violations:
+- motion_drift_exceeded (critical): Observed behavior exceeded allowed drift limits
+- incident_signature_match (high): Known-bad pattern detected in replayed logs
+
+Outcome:
+- Merge blocked
+- Review required
