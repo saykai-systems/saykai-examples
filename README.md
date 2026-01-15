@@ -1,10 +1,8 @@
 # saykai-examples
 
-> Enterprise reference examples for deterministic CI safety enforcement in high-stakes systems.
+> Enterprise reference examples for deterministic CI safety enforcement in high-stakes and safety-critical systems.
 >
-> These materials illustrate how Saykai is evaluated, integrated, and reviewed in safety-critical and regulated environments.
-
-Illustrative examples for Saykai.
+> These materials illustrate how Saykai is evaluated, integrated, and reviewed in regulated and safety-critical environments.
 
 This repository contains non-executable reference material that demonstrates how Saykai is used and what its outputs look like, without exposing production code or internal implementation details.
 
