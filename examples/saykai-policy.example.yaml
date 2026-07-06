@@ -1,0 +1,57 @@
+# Illustrative safety policy. Fabricated for reference -- these thresholds
+# are not derived for any real robot and should never be copied as-is into
+# a production policy.
+#
+# For a real, working starting policy, see saykai-action's quickstart/
+# directory. This file exists purely to show the shape of a customer's
+# approved policy: thresholds plus rule-level severity/action overrides.
+
+version: "1.0"
+
+policy:
+  name: "Example Customer Safety Policy"
+  mode: "customer_approved"
+  calibration_status: "pending_baseline_calibration"
+  decision_authority: "customer"
+  notes: "Illustrative only. Real thresholds should be derived from the robot's physical specs (see saykai-runner calibrate) and approved by a qualified safety engineer."
+
+thresholds:
+  class_b:
+    source: "manual_initial_policy"
+    approval_required: true
+
+    hard_limits:
+      max_speed: 0.45          # m/s
+      min_bubble: 0.15         # m, minimum inflation_radius
+      max_accel: 2.50          # m/s^2
+      max_scale: 1.00
+      max_angular_speed: 2.50  # rad/s
+      max_angular_accel: 5.00  # rad/s^2
+
+rules:
+  nav2_max_speed_exceeded:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a Nav2 max velocity value above the approved safety limit."
+    remediation: "Reduce max_vel_x (or the velocity_smoother/max_velocity equivalent) or update the approved policy limit after safety review."
+
+  nav2_inflation_radius_vs_footprint_risk:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected an inflation_radius smaller than robot_radius -- the costmap inflation doesn't even cover the robot's own footprint."
+    remediation: "Increase inflation_radius to at least exceed robot_radius."
+
+  high_entropy:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a high-entropy string that may represent a secret, token, key, or encoded payload."
+    remediation: "Remove the secret-like value or move it to a secure secret store."
+
+allowlist:
+  enabled: true
+  files: []
+  patterns: []
+  notes: "Allowlist entries require review and should only be used for known-safe fixtures, never real secrets or approved-but-risky config."

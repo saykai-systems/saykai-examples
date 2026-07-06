@@ -1,14 +1,11 @@
-SAYKAI SAFETY GATE RESULT
+Illustrative console output. Fabricated for reference -- trace ID and seal
+are not real. Evaluated against examples/nav2_params.example.yaml and
+examples/saykai-policy.example.yaml as shown (max_velocity[0]: 0.40,
+within the 0.45 m/s limit).
 
-Status: PASS
-PR: 829
-Scenarios evaluated: 12
-Log replay window: 7 days
+SAYKAI SENTINEL | v3.3.0-INTELLIGENCE-ALPHA
+OUTCOME: PASS | SEAL: 7a3f9c1e2b4d...
 
-Summary:
-- No violations detected
-- Drift metrics within allowed limits
-- No increase in critical error patterns
-
-Outcome:
-- Merge allowed
+Audit archived. To view the full detail report, run:
+  saykai-runner report
+  saykai-runner history (for previous traces)

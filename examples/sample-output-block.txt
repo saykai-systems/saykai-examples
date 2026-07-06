@@ -1,14 +1,19 @@
-SAYKAI SAFETY GATE RESULT
+Illustrative console output. Fabricated for reference -- trace ID and seal
+are not real. Evaluated against a modified copy of
+examples/nav2_params.example.yaml where velocity_smoother.max_velocity's
+first value was raised from 0.40 to 0.60 without a corresponding policy
+change -- exactly the kind of unreviewed regression this gate exists to
+catch.
 
-Status: BLOCK
-PR: 829
-Scenarios evaluated: 12
-Log replay window: 7 days
+SAYKAI SENTINEL | v3.3.0-INTELLIGENCE-ALPHA
+OUTCOME: BLOCK | SEAL: 4e9b21f7a06c...
+[!] BLOCK REASONS:
+    - NAV2_MAX_SPEED_EXCEEDED
+      -> NAV2_MAX_SPEED_EXCEEDED in nav2_params.yaml
+      -> math: method=threshold_comparison parameter=max_velocity[0] observed=0.6000 limit=0.4500 operator=gt result=fail
 
-Violations:
-- motion_drift_exceeded (critical): Observed behavior exceeded allowed drift limits
-- incident_signature_match (high): Known-bad pattern detected in replayed logs
+[ENFORCING] Safety violation detected. Build will fail.
 
-Outcome:
-- Merge blocked
-- Review required
+Audit archived. To view the full detail report, run:
+  saykai-runner report
+  saykai-runner history (for previous traces)
