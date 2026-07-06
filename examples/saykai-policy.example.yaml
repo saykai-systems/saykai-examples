@@ -29,6 +29,25 @@ thresholds:
       max_angular_accel: 5.00  # rad/s^2
 
 rules:
+  # Room 1: entropy/secret scanning. Runs on every file in scan.root
+  # regardless of this section -- these entries only customize severity/
+  # action, they don't turn the scan itself on or off.
+  high_entropy:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a high-entropy string that may represent a secret, token, key, or encoded payload."
+    remediation: "Remove the secret-like value, move it to a secure secret store, or explicitly allow it through the allowlist below if it's a known-safe fixture."
+
+  # Room 3: Nav2 policy audit. Each of these maps to one class of
+  # configured-value violation.
+  policy_violation:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a violation of an approved safety threshold."
+    remediation: "Review the policy threshold and update the target configuration or request policy approval."
+
   nav2_max_speed_exceeded:
     enabled: true
     severity: high
@@ -36,19 +55,95 @@ rules:
     explanation: "Detected a Nav2 max velocity value above the approved safety limit."
     remediation: "Reduce max_vel_x (or the velocity_smoother/max_velocity equivalent) or update the approved policy limit after safety review."
 
+  nav2_accel_exceeded:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a Nav2 acceleration value above the approved safety limit."
+    remediation: "Reduce acc_lim_x (or the velocity_smoother/max_accel equivalent) or update the approved policy limit after safety review."
+
+  nav2_lateral_speed_exceeded:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a Nav2 lateral (Y-axis) velocity above the approved safety limit."
+    remediation: "Reduce max_vel_y / vy_max or update the approved policy limit after safety review."
+
+  nav2_rotational_speed_exceeded:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a Nav2 rotational (theta-axis) velocity above the approved safety limit."
+    remediation: "Reduce max_vel_theta / wz_max / max_rotational_vel or update the approved policy limit after safety review."
+
+  nav2_lateral_accel_exceeded:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a Nav2 lateral (Y-axis) acceleration above the approved safety limit."
+    remediation: "Reduce acc_lim_y or update the approved policy limit after safety review."
+
+  nav2_rotational_accel_exceeded:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected a Nav2 rotational (theta-axis) acceleration above the approved safety limit."
+    remediation: "Reduce acc_lim_theta or update the approved policy limit after safety review."
+
+  nav2_min_bubble_violation:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Detected an inflation radius below the approved minimum safety buffer."
+    remediation: "Increase inflation_radius or update the approved minimum buffer after safety review."
+
+  nav2_max_scale_exceeded:
+    enabled: true
+    severity: medium
+    action: review
+    explanation: "Detected a scaling value above the approved policy limit."
+    remediation: "Review the scaling parameter and confirm it is appropriate for the robot class."
+
+  nav2_stopping_distance_risk:
+    enabled: true
+    severity: high
+    action: block
+    explanation: "Estimated stopping distance exceeds the available configured safety buffer."
+    remediation: "Reduce speed, increase available buffer, or adjust acceleration limits after safety review."
+
   nav2_inflation_radius_vs_footprint_risk:
     enabled: true
     severity: high
     action: block
     explanation: "Detected an inflation_radius smaller than robot_radius -- the costmap inflation doesn't even cover the robot's own footprint."
-    remediation: "Increase inflation_radius to at least exceed robot_radius."
+    remediation: "Increase inflation_radius to at least exceed robot_radius. Typical Nav2 configurations set it to several times robot_radius."
 
-  high_entropy:
+  nav2_goal_tolerance_vs_footprint_risk:
     enabled: true
     severity: high
     action: block
-    explanation: "Detected a high-entropy string that may represent a secret, token, key, or encoded payload."
-    remediation: "Remove the secret-like value or move it to a secure secret store."
+    explanation: "Detected an xy_goal_tolerance smaller than 10% of robot_radius -- the robot cannot physically achieve this precision and will oscillate near goals."
+    remediation: "Increase xy_goal_tolerance to at least 10% of robot_radius. Typical AMR configurations use 20-50% of robot_radius."
+
+  # Room 2: behavioral simulation. Only runs at all if scan.root contains a
+  # robot_brain.py AND scenarios are defined below.
+  behavioral_fatal:
+    enabled: true
+    severity: critical
+    action: block
+    explanation: "Detected unsafe behavior during simulation."
+    remediation: "Review the behavioral simulation output and correct the unsafe behavior before merging."
+
+  behavioral_latency:
+    enabled: true
+    severity: low
+    action: review
+    explanation: "Robot brain made the correct decision but exceeded the scenario latency budget. Informational only -- does not block the build."
+    remediation: "Investigate brain reaction time if this recurs."
+
+# Room 2 scenarios (optional -- omit this section entirely if you don't
+# have a robot_brain.py in scan.root).
+scenarios: []
 
 allowlist:
   enabled: true
