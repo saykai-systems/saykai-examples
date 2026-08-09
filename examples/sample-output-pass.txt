@@ -3,7 +3,7 @@ are not real. Evaluated against examples/nav2_params.example.yaml and
 examples/saykai-policy.example.yaml as shown (max_velocity[0]: 0.40,
 within the 0.45 m/s limit).
 
-SAYKAI SENTINEL | v3.3.0-INTELLIGENCE-ALPHA
+SAYKAI CRUX | v3.3.0-INTELLIGENCE-ALPHA
 OUTCOME: PASS | SEAL: 7a3f9c1e2b4d...
 
 Audit archived. To view the full detail report, run:

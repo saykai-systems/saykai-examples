@@ -5,7 +5,7 @@ first value was raised from 0.40 to 0.60 without a corresponding policy
 change -- exactly the kind of unreviewed regression this gate exists to
 catch.
 
-SAYKAI SENTINEL | v3.3.0-INTELLIGENCE-ALPHA
+SAYKAI CRUX | v3.3.0-INTELLIGENCE-ALPHA
 OUTCOME: BLOCK | SEAL: 4e9b21f7a06c...
 [!] BLOCK REASONS:
     - NAV2_MAX_SPEED_EXCEEDED
