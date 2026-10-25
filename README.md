@@ -105,6 +105,14 @@ This artifact demonstrates:
 - Explicit, per-finding violation reporting with rule IDs and math evidence
 - A tamper-evident seal covering the whole record, not just the findings
 
+### A real, verifiable Safety Pack
+
+The file above is fabricated. If you want one you can actually verify, see
+[`verify-demo/`](verify-demo/): two real packs from `saykai-runner` v1.4.0,
+signed with a demo key, plus the public key. You can check them in your
+browser at <https://www.saykai.com/verify> or with
+`saykai-runner verify safety-pack-block.json --public-key saykai-signing.pub`.
+
 ## What evaluators should look for
 
 When reviewing these examples, focus on:

@@ -1,0 +1,55 @@
+{
+  "trace_id": "trace-51050e38e13175e3",
+  "hardware_binding": "f7d8b559656c",
+  "status": "BLOCK",
+  "policy_file": "saykai-policy.yml",
+  "policy_sha256": "515abd574ae788e8b2b09dee0325f2d884834b140a46363df19ee61424ebb780",
+  "operator": {
+    "username": "runner",
+    "hostname": "gha-runner-01"
+  },
+  "integrity_seal": "d3bcecb2e2a346fad53caa9ae1d91928c2e6593fd5de3e944feca4ccae10b31b",
+  "signature": "d81ac48f6e2afc6a00d167203a745502423ef081fc55bf74b2e4bb902fd3e122780a35806b2a19ed48001fe2ec7d833f147f35f201d457a71826874227399903",
+  "signed_by_key_fingerprint": "ead287a79eac",
+  "timestamp": "2026-10-25 09:22:55 PDT",
+  "evaluation": {
+    "findings": [
+      {
+        "rule_id": "NAV2_MAX_SPEED_EXCEEDED",
+        "category": "POLICY_VIOLATION",
+        "severity": "high",
+        "file": "scan_targets/nav2_params.yaml",
+        "action": "block",
+        "explanation": "Detected a Nav2 max velocity value above the approved safety limit.",
+        "remediation": "Reduce max_vel_x (or the velocity_smoother/max_velocity equivalent) or update the approved policy limit after safety review.",
+        "raw": "[NAV2_MAX_SPEED_EXCEEDED] rule_id=NAV2_MAX_SPEED_EXCEEDED parameter=max_velocity[0] observed=0.6000 limit=0.4500 operator=gt method=threshold_comparison line=22 result=fail in scan_targets/nav2_params.yaml",
+        "math_evidence": {
+          "limit": 0.45,
+          "line": "22",
+          "method": "threshold_comparison",
+          "observed": 0.6,
+          "operator": "gt",
+          "parameter": "max_velocity[0]",
+          "result": "fail"
+        },
+        "allowlisted": false
+      }
+    ],
+    "issues": [
+      {
+        "code": "POLICY_VIOLATION",
+        "findings": [
+          "[NAV2_MAX_SPEED_EXCEEDED] rule_id=NAV2_MAX_SPEED_EXCEEDED parameter=max_velocity[0] observed=0.6000 limit=0.4500 operator=gt method=threshold_comparison line=22 result=fail in scan_targets/nav2_params.yaml"
+        ]
+      }
+    ],
+    "manifest": [
+      "Filesystem scan: scan_targets",
+      "nav2_params.yaml"
+    ],
+    "mode": "ENFORCEMENT",
+    "project": "example-fleet-nav2",
+    "scan_root": "scan_targets"
+  },
+  "signature_payload": "{\"trace_id\":\"trace-51050e38e13175e3\",\"hardware_binding\":\"f7d8b559656c\",\"status\":\"BLOCK\",\"policy_file\":\"saykai-policy.yml\",\"policy_sha256\":\"515abd574ae788e8b2b09dee0325f2d884834b140a46363df19ee61424ebb780\",\"operator\":{\"username\":\"runner\",\"hostname\":\"gha-runner-01\"},\"timestamp\":\"2026-10-25 09:22:55 PDT\",\"evaluation\":{\"findings\":[{\"rule_id\":\"NAV2_MAX_SPEED_EXCEEDED\",\"category\":\"POLICY_VIOLATION\",\"severity\":\"high\",\"file\":\"scan_targets/nav2_params.yaml\",\"action\":\"block\",\"explanation\":\"Detected a Nav2 max velocity value above the approved safety limit.\",\"remediation\":\"Reduce max_vel_x (or the velocity_smoother/max_velocity equivalent) or update the approved policy limit after safety review.\",\"raw\":\"[NAV2_MAX_SPEED_EXCEEDED] rule_id=NAV2_MAX_SPEED_EXCEEDED parameter=max_velocity[0] observed=0.6000 limit=0.4500 operator=gt method=threshold_comparison line=22 result=fail in scan_targets/nav2_params.yaml\",\"math_evidence\":{\"limit\":0.45,\"line\":\"22\",\"method\":\"threshold_comparison\",\"observed\":0.6,\"operator\":\"gt\",\"parameter\":\"max_velocity[0]\",\"result\":\"fail\"},\"allowlisted\":false}],\"issues\":[{\"code\":\"POLICY_VIOLATION\",\"findings\":[\"[NAV2_MAX_SPEED_EXCEEDED] rule_id=NAV2_MAX_SPEED_EXCEEDED parameter=max_velocity[0] observed=0.6000 limit=0.4500 operator=gt method=threshold_comparison line=22 result=fail in scan_targets/nav2_params.yaml\"]}],\"manifest\":[\"Filesystem scan: scan_targets\",\"nav2_params.yaml\"],\"mode\":\"ENFORCEMENT\",\"project\":\"example-fleet-nav2\",\"scan_root\":\"scan_targets\"}}"
+}

@@ -1,0 +1,27 @@
+{
+  "trace_id": "trace-eef245f2719d785c",
+  "hardware_binding": "f7d8b559656c",
+  "status": "PASS",
+  "policy_file": "saykai-policy.yml",
+  "policy_sha256": "515abd574ae788e8b2b09dee0325f2d884834b140a46363df19ee61424ebb780",
+  "operator": {
+    "username": "runner",
+    "hostname": "gha-runner-01"
+  },
+  "integrity_seal": "01f72913668c61b2c5e4b9e80a295d20a18c1b3ff000c85fe8a8b5ca542cfa8f",
+  "signature": "0304df3be746838f42d42039821c22e62fa3b188816aeff78d74db2df97529117c41a988be5ebf0034099fad5ac89631e4d4683dd86d7cec2e796f7ebee5a504",
+  "signed_by_key_fingerprint": "ead287a79eac",
+  "timestamp": "2026-10-25 09:22:55 PDT",
+  "evaluation": {
+    "findings": [],
+    "issues": [],
+    "manifest": [
+      "Filesystem scan: scan_targets",
+      "nav2_params.yaml"
+    ],
+    "mode": "ENFORCEMENT",
+    "project": "example-fleet-nav2",
+    "scan_root": "scan_targets"
+  },
+  "signature_payload": "{\"trace_id\":\"trace-eef245f2719d785c\",\"hardware_binding\":\"f7d8b559656c\",\"status\":\"PASS\",\"policy_file\":\"saykai-policy.yml\",\"policy_sha256\":\"515abd574ae788e8b2b09dee0325f2d884834b140a46363df19ee61424ebb780\",\"operator\":{\"username\":\"runner\",\"hostname\":\"gha-runner-01\"},\"timestamp\":\"2026-10-25 09:22:55 PDT\",\"evaluation\":{\"findings\":[],\"issues\":[],\"manifest\":[\"Filesystem scan: scan_targets\",\"nav2_params.yaml\"],\"mode\":\"ENFORCEMENT\",\"project\":\"example-fleet-nav2\",\"scan_root\":\"scan_targets\"}}"
+}

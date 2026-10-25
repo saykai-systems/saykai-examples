@@ -1,0 +1,9 @@
+
+SAYKAI CRUX | v1.4.0
+OUTCOME: PASS | SEAL: 01f72913668c...
+SCOPE: 1 file(s) scanned for secrets | 1 Nav2 file(s) audited, 9 safety parameter(s) checked
+SIGNED BY: key ead287a79eac (persistent key from SAYKAI_SIGNING_KEY)
+
+Audit archived. To view the full detail report, run:
+  saykai-runner report
+  saykai-runner history (for previous traces)
