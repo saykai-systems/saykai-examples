@@ -110,7 +110,7 @@ This artifact demonstrates:
 The file above is fabricated. If you want one you can actually verify, see
 [`verify-demo/`](verify-demo/): two real packs from `saykai-runner` v1.4.0,
 signed with a demo key, plus the public key. You can check them in your
-browser at <https://www.saykai.com/verify> or with
+browser at <https://saykai.com/verify> or with
 `saykai-runner verify safety-pack-block.json --public-key saykai-signing.pub`.
 
 ## What evaluators should look for

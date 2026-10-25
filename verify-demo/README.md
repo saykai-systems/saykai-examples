@@ -13,7 +13,7 @@ Two **real** Safety Packs, produced by `saykai-runner` v1.4.0 and signed with a 
 
 ## Verify in your browser
 
-Open <https://www.saykai.com/verify>. Your browser re-computes the SHA-256 seal and checks the Ed25519 signature locally. Nothing is uploaded. Edit one character in the pack and it fails.
+Open <https://saykai.com/verify>. Your browser re-computes the SHA-256 seal and checks the Ed25519 signature locally. Nothing is uploaded. Edit one character in the pack and it fails.
 
 ## Verify on the command line
 
