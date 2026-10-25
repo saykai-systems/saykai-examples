@@ -3,7 +3,7 @@ key ID are not real. Evaluated against examples/nav2_params.example.yaml and
 examples/saykai-policy.example.yaml as shown (max_velocity[0]: 0.40,
 within the 0.45 m/s limit).
 
-SAYKAI CRUX | v1.3.0
+SAYKAI CRUX | v1.4.0
 OUTCOME: PASS | SEAL: 7a3f9c1e2b4d...
 SCOPE: 1 file(s) scanned for secrets | 1 Nav2 file(s) audited, 9 safety parameter(s) checked
 SIGNED BY: key 3f2a9c0d1b7e (persistent key from SAYKAI_SIGNING_KEY)
