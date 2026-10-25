@@ -5,8 +5,9 @@ first value was raised from 0.40 to 0.60 without a corresponding policy
 change -- exactly the kind of unreviewed regression this gate exists to
 catch.
 
-SAYKAI CRUX | v3.3.0-INTELLIGENCE-ALPHA
+SAYKAI CRUX | v1.3.0
 OUTCOME: BLOCK | SEAL: 4e9b21f7a06c...
+SCOPE: 1 file(s) scanned for secrets | 1 Nav2 file(s) audited, 9 safety parameter(s) checked
 [!] BLOCK REASONS:
     - NAV2_MAX_SPEED_EXCEEDED
       -> NAV2_MAX_SPEED_EXCEEDED in nav2_params.yaml
