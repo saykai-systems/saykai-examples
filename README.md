@@ -148,4 +148,4 @@ see `SECURITY.md` for reporting instructions.
 
 ## License
 
-All contents in this repository are provided for reference purposes only.
+[MIT](LICENSE) © 2026 Saykai, Inc.
